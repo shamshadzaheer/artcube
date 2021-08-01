@@ -13,8 +13,42 @@ footer {
     // copyright text
     .footer-copyright-text {
         border-top: 1px solid $primary;
-        padding-top: 10px;
+        padding-top: 20px;
         text-align: center;
+    }
+
+    // quick links
+    .quick-links {
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+
+        & a {
+            color: #eee;
+        }
+
+        & a:hover {
+            color: $primary;
+            text-decoration: none;
+        }
+    }
+
+    // social-media links
+    .social-media {
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+        width: 200px!important;
+        display: block;
+
+        & li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        & a {
+            font-size: 40px;
+        }
     }
 }
 

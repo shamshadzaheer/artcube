@@ -86,10 +86,10 @@
 
         <footer>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="row mb-4">
+                    <div class="col-md-3">
                         <h2>Quick Links</h2>
-                        <ul>
+                        <ul class="quick-links">
                             <li><a href="#">Home</a></li>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Services</a></li>
@@ -97,7 +97,7 @@
 
                         </ul>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-7">
                         <h2>Contact Us</h2>
                         <p>House No. 40, First Street Qala-e-Fatullah, Kabul, Afghanistan
                             <br>
@@ -105,8 +105,8 @@
                             +93777724870
                         </p>
                     </div>
-                    <div class="col-md-4">
-                        <ul>
+                    <div class="col-md-2">
+                        <ul class="social-media">
                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                             <li><a href="#"><i class="fab fa-instagram"></i></a></li>

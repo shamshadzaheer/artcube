@@ -16126,6 +16126,32 @@ footer h2 {
 }
 footer .footer-copyright-text {
   border-top: 1px solid #e5dd4d;
-  padding-top: 10px;
+  padding-top: 20px;
   text-align: center;
+}
+footer .quick-links {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+footer .quick-links a {
+  color: #eee;
+}
+footer .quick-links a:hover {
+  color: #e5dd4d;
+  text-decoration: none;
+}
+footer .social-media {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  width: 200px !important;
+  display: block;
+}
+footer .social-media li {
+  display: inline-block;
+  margin-right: 20px;
+}
+footer .social-media a {
+  font-size: 40px;
 }
