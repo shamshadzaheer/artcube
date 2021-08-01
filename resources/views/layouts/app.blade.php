@@ -116,6 +116,11 @@
                     </div>
 
                 </div>
+                <div class="row">
+                    <div class="col footer-copyright-text">
+                        <p>&copy; Copyright ArtCube - Afghanistan {{ date('Y') }}.</p>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>

@@ -1,0 +1,21 @@
+footer {
+    background-color: #07384e;
+    color: #eee;
+    padding-top: 30px;
+    padding-bottom: 20px;
+
+    // footer heading
+    h2 {
+        font-size: 22px;
+        color: $primary;
+    }
+
+    // copyright text
+    .footer-copyright-text {
+        border-top: 1px solid $primary;
+        padding-top: 10px;
+        text-align: center;
+    }
+}
+
+
