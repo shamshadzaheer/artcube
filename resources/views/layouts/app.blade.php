@@ -43,16 +43,16 @@
                                 <a class="nav-link" href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">Videos</a>
+                                <a class="nav-link" href="{{ route('videos.index') }}">Videos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">Photos</a>
+                                <a class="nav-link" href="{{ route('photos.index') }}">Photos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">About</a>
+                                <a class="nav-link" href="{{ route('about.index') }}">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">Services</a>
+                                <a class="nav-link" href="{{ route('services.index') }}">Services</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
@@ -103,8 +103,8 @@
                         <h2>Quick Links</h2>
                         <ul class="quick-links">
                             <li><a href="{{ route('home') }}">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
+                            <li><a href="{{ route('about.index') }}">About Us</a></li>
+                            <li><a href="{{ route('services.index') }}">Services</a></li>
                             <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
 
                         </ul>
@@ -119,11 +119,11 @@
                     </div>
                     <div class="col-md-2">
                         <ul class="social-media">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ config('social.facebook') }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ config('social.youtube') }}"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="{{ config('social.instagram') }}"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="{{ config('social.linkedin') }}"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ config('social.twitter') }}"><i class="fab fa-twitter"></i></a></li>
                         </ul>
                     </div>
 
