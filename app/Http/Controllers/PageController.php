@@ -14,7 +14,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::all();
+        $pages = Page::latest()->all();
 
         return view('pages.index', compact('pages'));
     }
@@ -73,7 +73,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        return view('pages.edit', compact('page'));
     }
 
     /**
@@ -85,7 +85,15 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        //
+        $page = Page::create([
+            'title' => $request->title,
+            'slug' => str_slug($request->title),
+            'body' => $request->body,
+        ]);
+
+        $page->uploadCoverPhoto();
+
+        return redirect()->route('pages.index')->withSuccess('Page updated.');
     }
 
     /**
@@ -96,6 +104,10 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->deleteCoverFile();
+
+        $page->delete();
+
+        return redirect()->route('pages.index')->withSuccess('Page deleted.');
     }
 }

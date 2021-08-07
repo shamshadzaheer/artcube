@@ -55,7 +55,7 @@
                                 <a class="nav-link" href="{{ route('home') }}">Services</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">Contact</a>
+                                <a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
                             </li>
                             @auth
                                 <li class="nav-item dropdown">
@@ -102,10 +102,10 @@
                     <div class="col-md-3">
                         <h2>Quick Links</h2>
                         <ul class="quick-links">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
 
                         </ul>
                     </div>
