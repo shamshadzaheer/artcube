@@ -1,0 +1,36 @@
+
+header nav {
+    background-color: none;
+    padding-top: 30px;
+
+    .nav-link {
+        color: #fff!important;
+        font-size: 20px;
+
+        &:hover{
+            color: $primary;
+        }
+    }
+}
+
+header {
+}
+
+// Site header
+header.site-header {
+    height: 330px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $footer-bg;
+}
+
+
+// header message
+
+.header-message {
+    background-color: #e7e7e7;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    font-size: 18px;
+}

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://use.typekit.net/omf0jtm.css);
 @charset "UTF-8";
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -16154,4 +16154,35 @@ footer .social-media li {
 }
 footer .social-media a {
   font-size: 40px;
+}
+
+header nav {
+  background-color: none;
+  padding-top: 30px;
+}
+header nav .nav-link {
+  color: #fff !important;
+  font-size: 20px;
+}
+header nav .nav-link:hover {
+  color: #e5dd4d;
+}
+
+header.site-header {
+  height: 330px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #07384e;
+}
+
+.header-message {
+  background-color: #e7e7e7;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 1px;
+  font-size: 18px;
+}
+
+body {
+  font-family: myriad-pro, sans-serif;
 }

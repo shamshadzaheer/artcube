@@ -21,8 +21,8 @@
 </head>
 <body>
     <div id="app">
-        <header class="site-header" style="backround: url('/images/main-header.jpg')">
-            <nav class="navbar navbar-expand-md navbar-light bg-white">
+        <header class="site-header" style="background-image: url('/images/main-header.jpg');">
+            <nav class="navbar navbar-expand-md navbar-light">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
@@ -86,6 +86,11 @@
                 <span>Art of the light and show</span>
             </div>
         </header>
+        <div class="header-message">
+            <div class="container">
+                <p>We are a team of passionate experts who purely enjoy working.</p>
+            </div>
+        </div>
 
         <main class="py-4">
             @yield('content')

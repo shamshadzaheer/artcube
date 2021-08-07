@@ -14,7 +14,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::all();
+
+        return view('pages.index', compact('pages'));
     }
 
     /**
@@ -24,7 +26,9 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        $page = new Page();
+
+        return view('pages.create', compact('page'));
     }
 
     /**
@@ -35,7 +39,19 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+        ]);
+
+        $page = Page::create([
+            'title' => $request->title,
+            'slug' => str_slug($request->title),
+            'body' => $request->body,
+        ]);
+
+        $page->uploadCoverFile();
+
+        return redirect()->route('pages.index');
     }
 
     /**
@@ -46,7 +62,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        return view('pages.show', compact('page'));
     }
 
     /**
