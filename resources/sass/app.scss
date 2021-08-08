@@ -197,3 +197,37 @@ body {
         margin-bottom: 30px;
     }
 }
+
+
+// Home
+
+.home-video-box {
+    video {
+        border: 2px solid $primary;
+        border-radius: 5px;
+    }
+}
+
+// home heading
+.home-latest-photos,
+.home-latest-videos {
+    h2 {
+        background: #cbccc7;
+        padding-left: 20px;
+        padding-top: 5px;
+        font-size: 24px;
+    }
+}
+
+
+.home-latest-videos,
+.home-latest-photos {
+    & img {
+        width: 100%;
+    }
+
+    & p {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+}

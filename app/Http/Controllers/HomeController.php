@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $videos = Video::latest()->take(2)->get();
+        $photos = Photo::latest()->take(2)->get();
+
+        return view('home', compact('videos', 'photos'));
     }
 }
