@@ -40,22 +40,22 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">Home</a>
+                                <a class="nav-link @if(request()->is('/') || request()->is('home')) active @endif" href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('videos.index') }}">Videos</a>
+                                <a class="nav-link @if(request()->is('videos')) active @endif" href="{{ route('videos.index') }}">Videos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('photos.index') }}">Photos</a>
+                                <a class="nav-link @if(request()->is('photos')) active @endif" href="{{ route('photos.index') }}">Photos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('about.index') }}">About</a>
+                                <a class="nav-link @if(request()->is('about')) active @endif" href="{{ route('about.index') }}">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('services.index') }}">Services</a>
+                                <a class="nav-link @if(request()->is('services')) active @endif" href="{{ route('services.index') }}">Services</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
+                                <a class="nav-link @if(request()->is('contactus')) active @endif" href="{{ route('contact.index') }}">Contact</a>
                             </li>
                             @auth
                                 <li class="nav-item dropdown">
@@ -81,7 +81,7 @@
                 </div>
             </nav>
 
-            <div class="container">
+            <div class="container header-text">
                 <strong>ArtCube:</strong>
                 <span>Art of the light and show</span>
             </div>

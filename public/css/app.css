@@ -16253,3 +16253,16 @@ body {
   min-width: 800px;
   width: 800px;
 }
+
+.navbar {
+  padding-top: 20px;
+}
+.navbar a.nav-link {
+  font-size: 16px;
+}
+.navbar a.nav-link:hover {
+  color: #e5dd4d !important;
+}
+.navbar .active {
+  color: #e5dd4d !important;
+}
