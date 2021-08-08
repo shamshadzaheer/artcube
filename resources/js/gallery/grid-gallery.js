@@ -76,7 +76,7 @@ for(var i = 0; i < l; i++) {
   });
 }
 
-function gridGallery (options) {
+window.gridGallery = function gridGallery (options) {
   if (options.selector) selector = document.querySelector(options.selector);
   if (options.darkMode) selector.setAttribute("data-theme", "dark");
   if (options.layout == "horizontal" || options.layout == "square") selector.setAttribute("data-layout", options.layout);

@@ -1874,7 +1874,7 @@ var app = new Vue({
 
 
 
-__webpack_require__(/*! ./gallery/grid-gallery.min */ "./resources/js/gallery/grid-gallery.min.js");
+__webpack_require__(/*! ./gallery/grid-gallery */ "./resources/js/gallery/grid-gallery.js");
 
 /***/ }),
 
@@ -1922,133 +1922,104 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/gallery/grid-gallery.min.js":
-/*!**************************************************!*\
-  !*** ./resources/js/gallery/grid-gallery.min.js ***!
-  \**************************************************/
+/***/ "./resources/js/gallery/grid-gallery.js":
+/*!**********************************************!*\
+  !*** ./resources/js/gallery/grid-gallery.js ***!
+  \**********************************************/
 /***/ (() => {
 
 var root = document.querySelector("body, html");
-var container = document.querySelector(".gg-container");
+var container = document.querySelector('.gg-container');
 var images = document.querySelectorAll(".gg-box > img");
 var l = images.length;
 
 for (var i = 0; i < l; i++) {
-  images[i].addEventListener("click", function (h) {
-    var f = this;
-    var c = f.parentElement,
-        a = document.createElement("div");
-    a.id = "gg-screen";
-    container.prepend(a);
-
-    if (c.hasAttribute("data-theme")) {
-      a.setAttribute("data-theme", "dark");
-    }
-
-    var p = f.src;
-    root.style.overflow = "hidden";
-    a.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div>';
-    var k = images[0].src,
-        q = images[l - 1].src;
-    var o = document.querySelector(".gg-image"),
-        e = document.querySelector(".gg-prev"),
-        b = document.querySelector(".gg-next"),
-        r = document.querySelector(".gg-close");
-    o.innerHTML = '<img src="' + p + '">';
+  images[i].addEventListener("click", function (i) {
+    var currentImg = this;
+    var parentItem = currentImg.parentElement,
+        screenItem = document.createElement('div');
+    screenItem.id = "gg-screen";
+    container.prepend(screenItem);
+    if (parentItem.hasAttribute('data-theme')) screenItem.setAttribute("data-theme", "dark");
+    var route = currentImg.src;
+    root.style.overflow = 'hidden';
+    screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div>';
+    var first = images[0].src,
+        last = images[l - 1].src;
+    var imgItem = document.querySelector(".gg-image"),
+        prevBtn = document.querySelector(".gg-prev"),
+        nextBtn = document.querySelector(".gg-next"),
+        close = document.querySelector(".gg-close");
+    imgItem.innerHTML = '<img src="' + route + '">';
 
     if (l > 1) {
-      if (p == k) {
-        e.hidden = true;
-        var n = false;
-        var g = f.nextElementSibling;
+      if (route == first) {
+        prevBtn.hidden = true;
+        var prevImg = false;
+        var nextImg = currentImg.nextElementSibling;
+      } else if (route == last) {
+        nextBtn.hidden = true;
+        var nextImg = false;
+        var prevImg = currentImg.previousElementSibling;
       } else {
-        if (p == q) {
-          b.hidden = true;
-          var g = false;
-          var n = f.previousElementSibling;
-        } else {
-          var n = f.previousElementSibling;
-          var g = f.nextElementSibling;
-        }
+        var prevImg = currentImg.previousElementSibling;
+        var nextImg = currentImg.nextElementSibling;
       }
     } else {
-      e.hidden = true;
-      b.hidden = true;
+      prevBtn.hidden = true;
+      nextBtn.hidden = true;
     }
 
-    a.addEventListener("click", function (s) {
-      if (s.target == this || s.target == r) {
-        m();
-      }
+    screenItem.addEventListener("click", function (e) {
+      if (e.target == this || e.target == close) hide();
     });
-    root.addEventListener("keydown", function (s) {
-      if (s.keyCode == 37 || s.keyCode == 38) {
-        d();
-      }
-
-      if (s.keyCode == 39 || s.keyCode == 40) {
-        j();
-      }
-
-      if (s.keyCode == 27) {
-        m();
-      }
+    root.addEventListener("keydown", function (e) {
+      if (e.keyCode == 37 || e.keyCode == 38) prev();
+      if (e.keyCode == 39 || e.keyCode == 40) next();
+      if (e.keyCode == 27) hide();
     });
-    e.addEventListener("click", d);
-    b.addEventListener("click", j);
+    prevBtn.addEventListener("click", prev);
+    nextBtn.addEventListener("click", next);
 
-    function d() {
-      n = f.previousElementSibling;
-      o.innerHTML = '<img src="' + n.src + '">';
-      f = f.previousElementSibling;
-      var s = document.querySelector(".gg-image > img").src;
-      b.hidden = false;
-      e.hidden = s === k;
+    function prev() {
+      prevImg = currentImg.previousElementSibling;
+      imgItem.innerHTML = '<img src="' + prevImg.src + '">';
+      currentImg = currentImg.previousElementSibling;
+      var mainImg = document.querySelector(".gg-image > img").src;
+      nextBtn.hidden = false;
+      prevBtn.hidden = mainImg === first;
     }
 
-    function j() {
-      g = f.nextElementSibling;
-      o.innerHTML = '<img src="' + g.src + '">';
-      f = f.nextElementSibling;
-      var s = document.querySelector(".gg-image > img").src;
-      e.hidden = false;
-      b.hidden = s === q;
+    ;
+
+    function next() {
+      nextImg = currentImg.nextElementSibling;
+      imgItem.innerHTML = '<img src="' + nextImg.src + '">';
+      currentImg = currentImg.nextElementSibling;
+      var mainImg = document.querySelector(".gg-image > img").src;
+      prevBtn.hidden = false;
+      nextBtn.hidden = mainImg === last;
     }
 
-    function m() {
-      root.style.overflow = "auto";
-      a.remove();
+    ;
+
+    function hide() {
+      root.style.overflow = 'auto';
+      screenItem.remove();
     }
+
+    ;
   });
 }
 
-function gridGallery(a) {
-  if (a.selector) {
-    selector = document.querySelector(a.selector);
-  }
-
-  if (a.darkMode) {
-    selector.setAttribute("data-theme", "dark");
-  }
-
-  if (a.layout == "horizontal" || a.layout == "square") {
-    selector.setAttribute("data-layout", a.layout);
-  }
-
-  if (a.gaplength) {
-    selector.style.setProperty("--gap-length", a.gaplength + "px");
-  }
-
-  if (a.rowHeight) {
-    selector.style.setProperty("--row-height", a.rowHeight + "px");
-  }
-
-  if (a.columnWidth) {
-    selector.style.setProperty("--column-width", a.columnWidth + "px");
-  }
-}
-
-;
+window.gridGallery = function gridGallery(options) {
+  if (options.selector) selector = document.querySelector(options.selector);
+  if (options.darkMode) selector.setAttribute("data-theme", "dark");
+  if (options.layout == "horizontal" || options.layout == "square") selector.setAttribute("data-layout", options.layout);
+  if (options.gaplength) selector.style.setProperty('--gap-length', options.gaplength + 'px');
+  if (options.rowHeight) selector.style.setProperty('--row-height', options.rowHeight + 'px');
+  if (options.columnWidth) selector.style.setProperty('--column-width', options.columnWidth + 'px');
+};
 
 /***/ }),
 
@@ -6510,7 +6481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".gg-container {\n  --main-color: #000;\n  --secondary-color: #111;\n  --txt-color: #fff;\n  --img-bg-color: rgba(240, 240, 240, 0.9);\n  --backdrop-color: rgba(240, 240, 240, 0.9);\n  --gap-length: 2px;\n  --row-height: 200px;\n  --column-width: 220px;\n}\n\n.gg-container *[data-theme=\"dark\"] {\n  --main-color: #ddd;\n  --secondary-color: #eee;\n  --txt-color: #111;\n  --img-bg-color: rgba(20, 20, 20, 0.9);\n  --backdrop-color: rgba(30, 30, 30, 0.9);\n}\n\n.gg-box {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(var(--column-width), 1fr));\n  grid-auto-rows: var(--row-height);\n  grid-gap: var(--gap-length);\n  margin: 20px 0;\n}\n\n.gg-box img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  cursor: pointer;\n  width: 100%;\n  height: 100%;\n  background: var(--img-bg-color);\n}\n\n.gg-box img:hover {\n  opacity: 0.98;\n}\n\n#gg-screen {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background: var(--backdrop-color);\n  z-index: 9999;\n  text-align: center;\n}\n\n#gg-screen .gg-image {\n  height: 100%;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n}\n\n#gg-screen .gg-image img {\n  max-width: 100%;\n  max-height: 100%;\n  margin: 0 auto;\n}\n\n.gg-btn {\n  width: 35px;\n  height: 35px;\n  background: var(--main-color);\n  color: var(--txt-color);\n  text-align: center;\n  line-height: 35px;\n  cursor: pointer;\n  transition: all 0.4s ease;\n  font-size: 20px;\n  box-sizing: border-box;\n  padding-left: 2px;\n  position: fixed;\n  bottom: 10px;\n}\n\n.gg-btn:hover {\n  background: var(--secondary-color);\n}\n\n.gg-close {\n  top: 10px;\n}\n\n.gg-close,\n.gg-next {\n  right: 10px;\n}\n\n.gg-prev {\n  right: 50px;\n}\n\n.gg-prev,\n.gg-next {\n  bottom: 10px;\n}\n\n@media (min-width: 478px) {\n  .gg-box img:nth-child(2n):not(:last-of-type) {\n    grid-row-end: span 2;\n  }\n\n  [data-layout=\"horizontal\"] img:nth-child(2n):not(:last-of-type) {\n    grid-column-end: span 2;\n    grid-row-end: span 1;\n  }\n\n  [data-layout=\"square\"] img:nth-child(2n):not(:last-of-type) {\n    grid-row-end: span 1;\n    grid-column-end: span 1;\n  }\n}\n\n@media (max-width: 768px) {\n  .gg-box {\n    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n    grid-auto-rows: calc(var(--row-height) - 15vh);\n    margin: 10px 0;\n  }\n}\n\n@media (max-width: 450px) {\n  .gg-box {\n    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));\n  }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".gg-container {\n  --main-color: #000;\n  --secondary-color: #111;\n  --txt-color: #fff;\n  --img-bg-color: rgba(240, 240, 240, 0.9);\n  --backdrop-color: rgba(240, 240, 240, 0.9);\n  --gap-length: 2px;\n  --row-height: 200px;\n  --column-width: 220px;\n}\n\n.gg-container *[data-theme=\"dark\"] {\n  --main-color: #ddd;\n  --secondary-color: #eee;\n  --txt-color: #111;\n  --img-bg-color: rgba(20, 20, 20, 0.9);\n  --backdrop-color: rgba(30, 30, 30, 0.9);\n}\n\n.gg-box {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(var(--column-width), 1fr));\n  grid-auto-rows: var(--row-height);\n  grid-gap: var(--gap-length);\n  margin: 20px 0;\n}\n\n.gg-box img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  cursor: pointer;\n  width: 100%;\n  height: 100%;\n  background: var(--img-bg-color);\n}\n\n.gg-box img:hover {\n  opacity: 0.98;\n}\n\n#gg-screen {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background: var(--backdrop-color);\n  z-index: 9999;\n  text-align: center;\n}\n\n#gg-screen .gg-image {\n  height: 100%;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n}\n\n#gg-screen .gg-image img {\n  max-width: 100%;\n  max-height: 100%;\n  margin: 0 auto;\n}\n\n.gg-btn {\n  width: 35px;\n  height: 35px;\n  background: var(--main-color);\n  color: var(--txt-color);\n  text-align: center;\n  line-height: 35px;\n  cursor: pointer;\n  transition: all 0.4s ease;\n  font-size: 20px;\n  box-sizing: border-box;\n  padding-left: 2px;\n  position: fixed;\n  bottom: 10px;\n}\n\n.gg-btn:hover {\n  background: var(--secondary-color);\n}\n\n.gg-close {\n  top: 10px;\n}\n\n.gg-close,\n.gg-next {\n  right: 10px;\n}\n\n.gg-prev {\n  right: 50px;\n}\n\n.gg-prev,\n.gg-next {\n  bottom: 10px;\n  display: none;\n}\n\n@media (min-width: 478px) {\n  .gg-box img:nth-child(2n):not(:last-of-type) {\n    grid-row-end: span 2;\n  }\n\n  [data-layout=\"horizontal\"] img:nth-child(2n):not(:last-of-type) {\n    grid-column-end: span 2;\n    grid-row-end: span 1;\n  }\n\n  [data-layout=\"square\"] img:nth-child(2n):not(:last-of-type) {\n    grid-row-end: span 1;\n    grid-column-end: span 1;\n  }\n}\n\n@media (max-width: 768px) {\n  .gg-box {\n    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n    grid-auto-rows: calc(var(--row-height) - 15vh);\n    margin: 10px 0;\n  }\n}\n\n@media (max-width: 450px) {\n  .gg-box {\n    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

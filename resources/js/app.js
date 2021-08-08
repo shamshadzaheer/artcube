@@ -34,4 +34,4 @@ const app = new Vue({
 
 // Photo Gallery
 import './gallery/grid-gallery.css';
-require('./gallery/grid-gallery.min');
+require('./gallery/grid-gallery');
