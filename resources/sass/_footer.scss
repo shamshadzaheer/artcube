@@ -4,6 +4,10 @@ footer {
     padding-top: 30px;
     padding-bottom: 20px;
 
+    p {
+        line-height: 23px;;
+    }
+
     // footer heading
     h2 {
         font-size: 22px;
@@ -15,6 +19,7 @@ footer {
         border-top: 1px solid $primary;
         padding-top: 20px;
         text-align: center;
+        line-height: 20px;
     }
 
     // quick links
@@ -38,7 +43,7 @@ footer {
         padding: 0px;
         margin: 0px;
         list-style-type: none;
-        width: 200px!important;
+        width: 130px!important;
         display: block;
 
         & li {
@@ -47,7 +52,7 @@ footer {
         }
 
         & a {
-            font-size: 40px;
+            font-size: 30px;
         }
     }
 }

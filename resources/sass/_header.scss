@@ -30,7 +30,11 @@ header.site-header {
 .header-message {
     background-color: #e7e7e7;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 1px;
+    padding-top: 15px;
+    padding-bottom: 10px;
     font-size: 18px;
+
+    & p {
+        margin: 0px;
+    }
 }

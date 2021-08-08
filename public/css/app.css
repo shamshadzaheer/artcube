@@ -16141,6 +16141,9 @@ footer {
   padding-top: 30px;
   padding-bottom: 20px;
 }
+footer p {
+  line-height: 23px;
+}
 footer h2 {
   font-size: 22px;
   color: #e5dd4d;
@@ -16149,6 +16152,7 @@ footer .footer-copyright-text {
   border-top: 1px solid #e5dd4d;
   padding-top: 20px;
   text-align: center;
+  line-height: 20px;
 }
 footer .quick-links {
   padding: 0px;
@@ -16166,7 +16170,7 @@ footer .social-media {
   padding: 0px;
   margin: 0px;
   list-style-type: none;
-  width: 200px !important;
+  width: 130px !important;
   display: block;
 }
 footer .social-media li {
@@ -16174,7 +16178,7 @@ footer .social-media li {
   margin-right: 20px;
 }
 footer .social-media a {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 header nav {
@@ -16199,9 +16203,12 @@ header.site-header {
 .header-message {
   background-color: #e7e7e7;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 1px;
+  padding-top: 15px;
+  padding-bottom: 10px;
   font-size: 18px;
+}
+.header-message p {
+  margin: 0px;
 }
 
 body {
@@ -16259,10 +16266,45 @@ body {
 }
 .navbar a.nav-link {
   font-size: 16px;
+  text-transform: uppercase;
 }
 .navbar a.nav-link:hover {
   color: #e5dd4d !important;
 }
 .navbar .active {
   color: #e5dd4d !important;
+}
+
+.header-text {
+  color: #fff;
+  border-left: 4px solid #e5dd4d;
+  line-height: 22px;
+  position: relative;
+  padding-left: 10px;
+  margin-top: 180px;
+}
+.header-text span {
+  display: block;
+}
+
+.about-work-wrapper {
+  text-align: center;
+  margin-top: 120px;
+  background: #eee;
+  padding: 80px 10px;
+  margin-bottom: -30px;
+  background-image: url(/images/about-work-bg.jpg?f0ac3ce078984586a1bb883b5e6b2b89);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.about-work-wrapper h3 {
+  font-family: "Myriad-bold";
+  font-size: 40px;
+  margin-bottom: 0px;
+  color: #e5dd4d;
+}
+.about-work-wrapper p {
+  font-size: 16px;
+  color: #fff;
 }

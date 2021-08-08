@@ -115,6 +115,7 @@ body {
 
     & a.nav-link {
         font-size: 16px;
+        text-transform: uppercase;
     }
 
     & a.nav-link:hover {
@@ -123,5 +124,48 @@ body {
 
     & .active {
         color: $primary!important;
+    }
+}
+
+
+// header
+.header-text {
+    color: #fff;
+    border-left: 4px solid $primary;
+    line-height: 22px;
+    position:relative;
+    padding-left: 10px;
+    margin-top: 180px;
+
+    & span {
+        display: block;
+    }
+
+}
+
+
+// about work
+.about-work-wrapper {
+    text-align: center;
+    margin-top: 120px;
+    background: #eee;
+    padding: 80px 10px;
+    margin-bottom: -30px;
+    background-image: url('images/about-work-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    & h3 {
+        font-family: 'Myriad-bold';
+        font-size: 40px;
+        margin-bottom: 0px;
+        color: $primary;
+
+    }
+
+    & p {
+        font-size: 16px;
+        color: #fff;
     }
 }
