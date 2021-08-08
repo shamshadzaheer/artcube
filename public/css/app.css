@@ -1,5 +1,26 @@
-@import url(https://use.typekit.net/omf0jtm.css);
 @charset "UTF-8";
+@font-face {
+  font-family: "Myriad-light";
+  src: url(/fonts/MyriadPro-Light.woff2?421c7c1da4d4f63073e127fe5ba9e046) format("woff2"), url(/fonts/MyriadPro-Light.woff?6b9a8209b60f4b46c886cda46a53d257) format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad-black";
+  src: url(/fonts/MyriadPro-Black.woff2?2fdf3eae8f080ecae35501a3c95c6344) format("woff2"), url(/fonts/MyriadPro-Black.woff?84f12dfdc595e3ee1387b5bb1a882632) format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad-bold";
+  src: url("/fonts/Myriad Pro Bold.woff2?3d820a5b54daaeea140be46a94bcbdf4") format("woff2"), url("/fonts/Myriad Pro Bold.woff?c99a6209759ac0aaf3c0f0ab8d9a92b9") format("woff"), url("/fonts/Myriad Pro Bold.ttf?ba6deb5147fa6e225f9bf32d81c5f183") format("truetype");
+}
+@font-face {
+  font-family: "Myriad-regular";
+  src: url("/fonts/Myriad Pro Regular.woff2?0dd048349b3bd201b34f37728f7a3e99") format("woff2"), url("/fonts/Myriad Pro Regular.woff?728200ade9bc7fe11351d5a4f2b5b0f5") format("woff"), url("/fonts/Myriad Pro Regular.ttf?c59859cec849233be7f825c2fe1a29ea") format("truetype");
+}
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -16184,5 +16205,51 @@ header.site-header {
 }
 
 body {
-  font-family: myriad-pro, sans-serif;
+  font-family: "Myriad-regular", sans-serif;
+  font-size: 18px;
+}
+
+.page-title {
+  font-family: "Myriad-bold";
+  font-size: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  border-bottom: 4px solid #e5dd4d;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.text-bold {
+  font-family: "Myriad-bold";
+}
+
+.site-text p {
+  font-family: "Myriad-light";
+  font-size: 20px;
+}
+
+.no-border-radius {
+  border-radius: 0px !important;
+}
+
+.box-container {
+  border-radius: 30px;
+  background: #deded9;
+  padding: 30px 50px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 70px;
+}
+.box-container ul {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 15px;
+}
+
+.short-box {
+  min-width: 800px;
+  width: 800px;
 }

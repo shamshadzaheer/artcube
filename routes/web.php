@@ -17,6 +17,7 @@ Route::get('about', [AboutController::class, 'index'])->name('about.index');
 
 // Contact Page
 Route::get('contactus', [ContactController::class, 'index'])->name('contact.index');
+Route::post('contactus', [ContactController::class, 'sendEmail'])->name('contact.submit');
 
 // Videos
 Route::get('videos', [VideoController::class, 'index'])->name('videos.index');

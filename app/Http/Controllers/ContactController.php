@@ -15,4 +15,15 @@ class ContactController extends Controller
     {
         return view('contact.index');
     }
+
+    /**
+     * Sending Email
+     * Send Contact us form
+     *
+     * @return view
+     */
+    public function sendEmail(Request $request)
+    {
+
+    }
 }
