@@ -1,4 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/grid-gallery.min.js": "/js/grid-gallery.min.js",
+    "/css/grid-gallery.min.css": "/css/grid-gallery.min.css",
     "/css/app.css": "/css/app.css"
 }

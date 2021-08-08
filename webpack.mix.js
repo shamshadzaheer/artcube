@@ -12,5 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/gallery/grid-gallery.min.js', 'public/js')
+    .css('resources/js/gallery/grid-gallery.min.css', 'public/css')
     .vue()
     .sass('resources/sass/app.scss', 'public/css');

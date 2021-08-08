@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
+
+    /**
+     * Get Photo Url
+     *
+     * return string
+     */
+    public function getUrl():string
+    {
+        return url('storage/' . $this->file);
+    }
 }
