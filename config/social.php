@@ -6,4 +6,5 @@ return [
     'instagram' => '#',
     'linkedin' => '#',
     'twitter' => '#',
+    'email' => 'info@artcube-af.com',
 ];

@@ -6,6 +6,16 @@
 <div class="text-center">
     <h1 class="page-title">Contact Us</h1>
 </div>
+@if (session('success'))
+<div class="alert alert-success">
+    <h2>Thank you!</h2>
+    <p class="mb-0 pb-0">{{ session('success') }}</p>
+</div>
+@elseif(session('fail'))
+<div class="alert alert-danger">
+    <p>{{ session('fail') }}</p>
+</div>
+@endif
 <div class="box-container short-box contact-box">
     <form action="{{ route('contact.submit') }}" method="post">
         @csrf
