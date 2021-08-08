@@ -90,7 +90,7 @@
         </header>
         <div class="header-message">
             <div class="container">
-                <p>We are a team of passionate experts who purely enjoy working.</p>
+                <p class="animate_animated animate__fadeIn">We are a team of passionate experts who purely enjoy working.</p>
             </div>
         </div>
 

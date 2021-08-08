@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col">
                 <p>Afghanistan is a place of untold stories. Karukh, Herat</p>
-                <video width="100%" autoplay controls>
+                <video width="100%" class="animate__animated animate__fadeIn" autoplay controls>
                     <source src="{{ url('video-files/main-video.mp4') }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
