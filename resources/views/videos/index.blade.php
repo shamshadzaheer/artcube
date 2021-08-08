@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', 'Video Gallery - ArtCube')
 
 @section('content')
 <div class="container">

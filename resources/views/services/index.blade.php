@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title', 'Services - ArtCube')
 
 @section('content')
 <div class="container">

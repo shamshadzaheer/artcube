@@ -16256,6 +16256,13 @@ body {
   margin-left: 15px;
 }
 
+.contact-box .form-control {
+  font-size: 16px;
+  color: #333;
+  font-family: "Myriad-regular";
+  border-radius: 0px;
+}
+
 .short-box {
   min-width: 800px;
   width: 800px;

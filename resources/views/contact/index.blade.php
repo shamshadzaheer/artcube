@@ -1,11 +1,12 @@
 @extends('layouts.app')
+@section('page-title', 'Contact Us - ArtCube')
 
 @section('content')
 <div class="container">
 <div class="text-center">
     <h1 class="page-title">Contact Us</h1>
 </div>
-<div class="box-container short-box">
+<div class="box-container short-box contact-box">
     <form action="{{ route('contact.submit') }}" method="post">
         @csrf
         <div class="row">
