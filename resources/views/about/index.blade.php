@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('page-title', 'About Us - ArtCube')
+@section('header-image', '/images/header-about.jpg')
 
 @section('content')
 <div class="container mb-5">

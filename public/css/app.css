@@ -16339,6 +16339,15 @@ body {
   margin-bottom: 30px;
 }
 
+.navbar-brand {
+  color: #eee !important;
+  text-transform: uppercase;
+}
+.navbar-brand img {
+  margin-left: 10px;
+  padding-right: 2px;
+}
+
 .home-video-box video {
   border-radius: 5px;
 }

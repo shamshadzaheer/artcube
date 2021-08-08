@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('page-title', 'Contact Us - ArtCube')
+@section('header-image', '/images/header-contact.jpg')
 
 @section('content')
 <div class="container">
@@ -60,6 +61,5 @@
         </div>
     </form>
 </div>
-
 </div>
 @endsection

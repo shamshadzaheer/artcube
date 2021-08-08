@@ -208,6 +208,16 @@ body {
 }
 
 
+// logo
+.navbar-brand {
+    color: #eee!important;
+    text-transform: uppercase;
+    & img {
+        margin-left: 10px;
+        padding-right: 2px;
+    }
+}
+
 // Home
 
 .home-video-box {
