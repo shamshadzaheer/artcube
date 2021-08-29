@@ -10,6 +10,8 @@ class Page extends Model
 {
     use HasFactory;
 
+    public $fillable = ['title', 'body'];
+
     /**
      * Upload Cover File Photo
      *
@@ -35,5 +37,13 @@ class Page extends Model
         if ($this->cover_file) {
             File::delete(storage_path('app/public/' . $this->cover_file));
         }
+    }
+
+    /**
+     * Get Page Edit URL
+     */
+    public function getEditUrl():string
+    {
+        return route('admin.pages.edit', $this);
     }
 }

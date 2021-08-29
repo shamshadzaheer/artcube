@@ -2,7 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/grid-gallery.min.js": "/js/grid-gallery.min.js",
     "/admin-template/js/admin.js": "/admin-template/js/admin.js",
+    "/admin-template/css/admin.css": "/admin-template/css/admin.css",
     "/css/app.css": "/css/app.css",
-    "/css/grid-gallery.min.css": "/css/grid-gallery.min.css",
-    "/admin-template/css/admin.css": "/admin-template/css/admin.css"
+    "/css/grid-gallery.min.css": "/css/grid-gallery.min.css"
 }

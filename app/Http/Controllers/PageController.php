@@ -14,9 +14,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::latest()->all();
+        $pages = Page::latest('id')->paginate();
 
-        return view('pages.index', compact('pages'));
+        return view('admin.pages.index', compact('pages'));
     }
 
     /**
@@ -28,7 +28,7 @@ class PageController extends Controller
     {
         $page = new Page();
 
-        return view('pages.create', compact('page'));
+        return view('admin.pages.create', compact('page'));
     }
 
     /**
@@ -49,9 +49,9 @@ class PageController extends Controller
             'body' => $request->body,
         ]);
 
-        $page->uploadCoverFile();
+        // $page->uploadCoverFile();
 
-        return redirect()->route('pages.index');
+        return redirect()->route('admin.pages');
     }
 
     /**
@@ -73,7 +73,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        return view('pages.edit', compact('page'));
+        return view('admin.pages.edit', compact('page'));
     }
 
     /**
@@ -85,15 +85,14 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        $page = Page::create([
+        $page->update([
             'title' => $request->title,
             'slug' => str_slug($request->title),
             'body' => $request->body,
         ]);
 
-        $page->uploadCoverPhoto();
 
-        return redirect()->route('pages.index')->withSuccess('Page updated.');
+        return redirect()->route('admin.pages')->withSuccess('Page updated.');
     }
 
     /**
@@ -104,10 +103,8 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        $page->deleteCoverFile();
-
         $page->delete();
 
-        return redirect()->route('pages.index')->withSuccess('Page deleted.');
+        return redirect()->route('admin.pages')->withSuccess('Page deleted.');
     }
 }
