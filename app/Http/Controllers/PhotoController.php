@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PhotoController extends Controller
 {
+    const PHOTOS_LIMIT = 10;
     /**
      * Display a listing of the resource.
      *
@@ -20,13 +21,25 @@ class PhotoController extends Controller
     }
 
     /**
+     * Admin
+     */
+    public function admin()
+    {
+        $photos = Photo::latest('id')->simplePaginate(SELF::PHOTOS_LIMIT);
+
+        return view('admin.photos.index', compact('photos'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $photo = new Photo();
+
+        return view('admin.photos.create', compact('photo'));
     }
 
     /**
@@ -37,7 +50,18 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'file' => 'required|mimes:jpg,jpeg,png'
+        ]);
+
+        $photo = Photo::create([
+            'title' => $request->title,
+        ]);
+
+        $photo->uploadPhotoFile();
+
+        return redirect()->route('admin.photos');
     }
 
     /**
@@ -59,7 +83,7 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
-        //
+        return view('admin.photos.edit', compact('photo'));
     }
 
     /**
@@ -71,7 +95,18 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:3|max:255',
+            'file' => 'nullable|mimes:jpg,png,jpeg',
+        ]);
+
+        $photo->uploadPhotoFile();
+
+        $photo->update([
+            'title' => $request->title,
+        ]);
+
+        return redirect()->route('admin.photos');
     }
 
     /**
@@ -82,6 +117,10 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        $photo->deletePhotoFile();
+
+        $photo->delete();
+
+        return redirect()->route('admin.photos');
     }
 }

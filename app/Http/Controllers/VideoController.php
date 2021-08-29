@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
+    const VIDEOS_LIMIT = 10;
     /**
      * Display a listing of the resource.
      *
@@ -20,13 +21,25 @@ class VideoController extends Controller
     }
 
     /**
+     * Admin
+     */
+    public function admin()
+    {
+        $videos = Video::latest('id')->simplePaginate(SELF::VIDEOS_LIMIT);
+
+        return view('admin.videos.index', compact('videos'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $video = new Video();
+
+        return view('admin.videos.create', compact('video'));
     }
 
     /**
@@ -37,7 +50,14 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $videoData = $request->validate([
+            'title' => 'required',
+            'youtube_code' => 'required',
+        ]);
+
+        Video::create($videoData);
+
+        return redirect()->route('admin.videos');
     }
 
     /**
@@ -59,7 +79,7 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        //
+        return view('admin.videos.edit', compact('video'));
     }
 
     /**
@@ -71,7 +91,14 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
-        //
+        $videoData = $request->validate([
+            'title' => 'required',
+            'youtube_code' => 'required',
+        ]);
+
+        $video->update($videoData);
+
+        return redirect()->route('admin.videos');
     }
 
     /**
@@ -82,6 +109,8 @@ class VideoController extends Controller
      */
     public function destroy(Video $video)
     {
-        //
+        $video->delete();
+
+        return redirect()->route('admin.videos');
     }
 }

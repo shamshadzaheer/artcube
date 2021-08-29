@@ -9,6 +9,8 @@ class Video extends Model
 {
     use HasFactory;
 
+    public $fillable = ['title', 'youtube_code'];
+
     /**
      * Get Youtube Video
      * Thumbnail (Default Thumbnail)
@@ -26,5 +28,13 @@ class Video extends Model
     public function getVideoLink():string
     {
         return "https://www.youtube.com/watch?v=" . $this->youtube_code;
+    }
+
+    /**
+     * Edit Url
+     */
+    public function getEditUrl():string
+    {
+        return route('admin.videos.edit', $this->id);
     }
 }

@@ -1,6 +1,6 @@
 <?php
-
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhotoController;
@@ -29,5 +29,24 @@ Route::get('photos', [PhotoController::class, 'index'])->name('photos.index');
 Route::get('services', [ServiceController::class, 'index'])->name('services.index');
 
 // Auth Routes
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
+
+// Admin
+Route::prefix('admin')->middleware('auth')->group(function(){
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+
+    Route::get('photo-gallery', [PhotoController::class, 'admin'])->name('admin.photos');
+    Route::get('photo-gallery/{photo}/edit', [PhotoController::class, 'edit'])->name('admin.photos.edit');
+    Route::put('photo-gallery/{photo}', [PhotoController::class, 'update'])->name('admin.photos.update');
+    Route::delete('photo-gallery/{photo}', [PhotoController::class, 'destroy'])->name('admin.photos.delete');
+    Route::get('photo-gallery/create', [PhotoController::class, 'create'])->name('admin.photos.create');
+    Route::post('photo-gallery', [PhotoController::class, 'store'])->name('admin.photos.store');
+
+    Route::get('video-gallery', [VideoController::class, 'admin'])->name('admin.videos');
+    Route::get('video-gallery/{video}/edit', [VideoController::class, 'edit'])->name('admin.videos.edit');
+    Route::put('video-gallery/{video}', [VideoController::class, 'update'])->name('admin.videos.update');
+    Route::delete('video-gallery/{video}', [VideoController::class, 'destroy'])->name('admin.videos.delete');
+    Route::get('video-gallery/create', [VideoController::class, 'create'])->name('admin.videos.create');
+    Route::post('video-gallery', [VideoController::class, 'store'])->name('admin.videos.store');
+});

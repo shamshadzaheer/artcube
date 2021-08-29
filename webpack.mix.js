@@ -13,6 +13,8 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/gallery/grid-gallery.min.js', 'public/js')
+    .js('resources/js/admin.js', 'public/admin-template/js')
+    .sass('resources/sass/admin.scss', 'public/admin-template/css')
     .css('resources/js/gallery/grid-gallery.min.css', 'public/css')
     .vue()
     .sass('resources/sass/app.scss', 'public/css');

@@ -1,0 +1,14 @@
+@import url('admin-lte/dist/css/adminlte.css');
+@import url('@fortawesome/fontawesome-free/css/all.css');
+
+.img-thumbnail {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+}
+
+.table {
+    a {
+        color: #333;
+    }
+}
